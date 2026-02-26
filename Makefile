@@ -13,9 +13,10 @@ all:
 	@$(CC) $(CFLAGS) re.c tests/test_rand.c     -o tests/test_rand
 	@$(CC) $(CFLAGS) re.c tests/test_rand_neg.c -o tests/test_rand_neg
 	@$(CC) $(CFLAGS) re.c tests/test_compile.c  -o tests/test_compile
+	@$(CC) $(CFLAGS) re.c tests/test_kvvm.c     -o tests/test_kvvm
 
 clean:
-	@rm -f tests/test1 tests/test2 tests/test_rand tests/test_rand_neg tests/test_compile
+	@rm -f tests/test1 tests/test2 tests/test_rand tests/test_rand_neg tests/test_compile tests/test_kvvm
 	@#@$(foreach test_bin,$(TEST_BINS), rm -f $(test_bin) ; )
 	@rm -f a.out
 	@rm -f *.o
@@ -95,6 +96,9 @@ test: all
 	@echo
 	@echo
 	@./tests/test2
+	@echo
+	@echo
+	@./tests/test_kvvm
 	@echo
 	@echo
 
